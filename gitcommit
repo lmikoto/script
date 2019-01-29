@@ -1,0 +1,31 @@
+#!/bin/bash
+git add .
+
+commit2="
+$1: $2
+"
+
+commit3="
+$1: $2
+
+Closes $3
+"
+
+commit4="
+$1: $2
+
+$4
+
+Closes $3
+"
+
+if [ $# = 4 ]; then
+  echo $commit4
+  git commit -m "$commit4"
+elif [ $# = 3 ]; then
+  echo $commit3
+  git commit -m "$commit3"
+elif [ $# = 2 ]; then
+  echo $commit2
+  git commit -m "$commit2"
+fi
